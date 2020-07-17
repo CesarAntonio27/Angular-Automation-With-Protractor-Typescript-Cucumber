@@ -1,0 +1,19 @@
+{
+    "configurations": [
+
+        {
+            "type": "node-terminal",
+            "name": "debug protractor",
+            "request": "launch",
+            "program": "${workspaceRoot}/node_modules/protractor/bin/protractor",
+            "stopOnEntry": false,
+            "args":[
+                "${workspaceRoot}/Test/conf.js"
+            ],
+            "outFiles": [
+                "${workspaceRoot}/out/**/*.js"
+            ],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

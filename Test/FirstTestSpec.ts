@@ -7,16 +7,16 @@ describe("going to write first test", ()=>{
     //globally
     var homePage = new HomePage();
 
-    it("should pass without any issue", ()=>{
+    it("should pass without any issue", async ()=>{
 
         //open browser
-        homePage.OpenBrowser("http://localhost:8808/");
+        await homePage.OpenBrowser("http://localhost:8808/");
 
         //Get the headers
-        homePage.GetALLHeadings();
+        await homePage.GetALLHeadings();
         
         //click the firt heading
-        homePage.ClikFirstHeading();
+        await homePage.ClikFirstHeading();
 
         //CLASE 13 COMENTO TODO EL CODIGO POR QUE LO PASE A HOMEPAGE.TS Y LOS CONVERTI EN METODOS, LLAMANDOLOS ARRIBA
         //PARA TENER UN CODIGO MAS LIMPIO

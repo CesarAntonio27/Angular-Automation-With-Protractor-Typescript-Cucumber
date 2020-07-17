@@ -22,16 +22,16 @@ export class HomePage extends BasePages{
     headings = this.ElementLocator(Locators.headings);
 
     //open browser 
-    OpenBrowser(url: string){
-        browser.get(url);
+    async OpenBrowser(url: string){
+        await browser.get(url);
     }
-    GetALLHeadings(){
-        this.headings.getText().then((text) =>{
+    async GetALLHeadings(){
+        await this.headings.getText().then((text) =>{
             console.log("the heading is: " + text);
         });
     }
 
-    ClikFirstHeading(){
-        this.heading.click();
+    async ClikFirstHeading(){
+        await this.heading.click();
     }
 }
