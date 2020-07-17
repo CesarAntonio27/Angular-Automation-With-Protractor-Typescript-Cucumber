@@ -1,6 +1,6 @@
 //llamando las clases
 import {browser, element, by, $$, $} from 'protractor';
-import { IdentificationType } from './BasePages';
+import { IdentificationType, BasePages } from './BasePages';
 
 
 const Locators = {
@@ -13,13 +13,13 @@ const Locators = {
         value:".well.hoverwell.thumbnail>h2"
     }
 }
-export class HomePage{
+export class HomePage extends BasePages{
 
     //selenium development course
-    heading = element(by.xpath("")
+    heading = this.ElementLocator(Locators.heading)
                                .element(by.xpath("//span[contains(text(),'4th')]"));
     //all heading
-    headings = $("");
+    headings = this.ElementLocator(Locators.headings);
 
     //open browser 
     OpenBrowser(url: string){

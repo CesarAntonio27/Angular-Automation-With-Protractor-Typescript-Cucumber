@@ -5,8 +5,10 @@ export enum IdentificationType{
     Id,
     Name,
     Css,
+    Js,
     Xpath,
-    LinkText
+    PartialLinkText,
+    ClassName
 }
 
 export class BasePages {
@@ -15,16 +17,16 @@ export class BasePages {
 
         //HECHO CON SWICH CASE 
         switch(obj.type){
-            case IdentificationType[IdentificationType.Id]:
-                return element(by.id(obj.value));
-            case IdentificationType[IdentificationType.Name]:
-                return element(by.name(obj.value));
-            case IdentificationType[IdentificationType.Css]:
-                return element(by.css(obj.value));
             case IdentificationType[IdentificationType.Xpath]:
                 return element(by.xpath(obj.value));
-            case IdentificationType[IdentificationType.LinkText]:
-                return element(by.linkText(obj.value));
+            case IdentificationType[IdentificationType.ClassName]:
+                return element(by.classname(obj.value));
+            case IdentificationType[IdentificationType.Id]:
+                return element(by.id(obj.value));
+            case IdentificationType[IdentificationType.Js]:
+                return element(by.js(obj.value));
+            case IdentificationType[IdentificationType.Css]:
+                return element(by.css(obj.value));
             default:
                 break;
             
