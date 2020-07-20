@@ -31,7 +31,8 @@ export class HomePage extends BasePages{
         });
     }
 
-    async ClikFirstHeading(){
+    async ClikFirstHeading(heading :string){
+        console.log("can i print the input value from StepDefinition?, if yes, this is it" + heading);
         await this.heading.click();
     }
 }
