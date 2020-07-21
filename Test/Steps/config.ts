@@ -14,6 +14,6 @@ export let config: Config ={
         strict:true,
         format:['pretty'],
         require:['../Steps/*.js','../hooks/*.js'],
-        tags:'@smoke'
+        tags:'@smoke or @regression'
     }
 }
