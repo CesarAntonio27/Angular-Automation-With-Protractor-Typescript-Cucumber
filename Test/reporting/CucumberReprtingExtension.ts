@@ -9,9 +9,10 @@ const Cucumber = require('cucumber')
 
 export class CucumberReportExtension{
 
-    jsonDir = process.cwd() + "/reports/json";
-    htmlDir = process.cwd() + "/reports/html";
-    jsonFile = this.jsonDir + "/cucumber_report.json" + "/reports/json";
+
+    private jsonDir = process.cwd() + "/reports/json";
+    private htmlDir = process.cwd() + "/reports/html";
+    private jsonFile = this.jsonDir + "/cucumber_report.json" + "/reports/json";
 
     private cucumberReporterOptions = {
         theme: "bootstrap",
@@ -45,4 +46,12 @@ export class CucumberReportExtension{
 private GenerateCucumberReport(cucumberReportOption){
     report.generate(cucumberReportOption);
 } 
+JsonFormatter = new Cucumber.JsonFormatter({
+   log: jlog =>{
+       this.createReportFile(this.jsonDir, this.jsonFile, jlog);
+       this.GenerateCucumberReport(this.cucumberReporterOptions);
+   } 
+})
 }
+
+export let JsonFormatter = new CucumberReportExtension().JsonFormatter;

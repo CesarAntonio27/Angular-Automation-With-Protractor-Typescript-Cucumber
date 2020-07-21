@@ -1,9 +1,10 @@
 import {defineSupportCode } from 'cucumber'
 import { browser } from 'protractor';
 import { config } from '../Steps/config';
+import { CucumberReportExtension, JsonFormatter } from '../reporting/CucumberReprtingExtension';
 
 
-defineSupportCode(({ registerHandler }) =>{
+defineSupportCode(({ registerHandler, registerListener }) =>{
     
     registerHandler('BeforeFeature', async()=>{
         console.log('Executing before feature !!');
@@ -26,5 +27,6 @@ defineSupportCode(({ registerHandler }) =>{
     });
 
 
+    registerListener(JsonFormatter);
 
 });
