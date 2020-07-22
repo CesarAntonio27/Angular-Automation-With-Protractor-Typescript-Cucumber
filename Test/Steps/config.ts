@@ -9,6 +9,11 @@ export let config: Config ={
 
     baseUrl:"http://localhost:8808/",
 
+    suites: {
+        "homepage":"../feature/Home.feature",
+        "coursedetails":"../feature/CourseDetails.feature"
+},
+        
     cucumberOpts: {
         compiler: "ts:ts-node/register",
         strict:true,
