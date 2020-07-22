@@ -1,6 +1,6 @@
-import {defineSupportCode, Given, Then, When} from 'cucumber'
+import {defineSupportCode, Given, Then, When, TableDefinition} from 'cucumber'
 import { HomePage } from '../pages/HomePage';
-import { expect } from 'chai'
+import { expect, assert } from 'chai'
 import { CourseDetailsPage } from '../pages/CourseDetails';
 
 
@@ -22,5 +22,20 @@ defineSupportCode(({Given, When, Then}) =>{
 
     Then(/^I should see '([^\"]*)' course in coursedetails page$/, async (course) => {
         expect(coursedetailspage.GetcourseHeading).to.be.not.null;
+    });
+
+    Then(/^I should see all course information in  coursedetails page$/, async (table: TableDefinition) => {
+        
+        let localTable = [
+            ['Selenium', '2'],
+            ['Java','3']
+        ]
+
+        
+        table.rows().forEach(element => {
+            console.log(element);
+        });
+
+        assert.deepEqual(localTable, table.rows(), "the datasourse does not matches with the step definition table");
     });
 });
