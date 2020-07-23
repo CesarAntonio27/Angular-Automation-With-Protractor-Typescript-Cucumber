@@ -38,4 +38,8 @@ defineSupportCode(({Given, When, Then}) =>{
 
         assert.deepEqual(localTable, table.rows(), "the datasourse does not matches with the step definition table");
     });
+
+    When(/^I enter text in search from external data source$/, async ()=>{
+        await homePage.EnterDataInSearchFromJson();
+    } )
 });
