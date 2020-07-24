@@ -3,7 +3,7 @@ import {browser, element, by, $$, $} from 'protractor';
 import { IdentificationType, BasePages } from './BasePages';
 import json from 'load-json-file';
 
-const Locators = {
+const Locators: any = {
     heading: {
         type:IdentificationType[IdentificationType.Xpath],
         value:"//course-thumb/div//h2[text()=' Selenium Framework development ']"
@@ -18,6 +18,8 @@ const Locators = {
         value: "[class='form-comtrol']"
     }
 }
+
+
 export class HomePage extends BasePages{
 
     //selenium development course
@@ -27,7 +29,8 @@ export class HomePage extends BasePages{
     headings = this.ElementLocator(Locators.headings);
 
     //search textbox 
-    searchText = this.ElementLocator(this.Locators.searchText)
+    searchText = this.ElementLocator(Locators.searchText)
+    
 
 
     //open browser 

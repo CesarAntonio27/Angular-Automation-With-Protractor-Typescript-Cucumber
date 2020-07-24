@@ -3,7 +3,7 @@
         
 
         {
-            "type": "node-terminal",
+            "type": "node",//-terminal,
             "name": "debug protractor",
             "request": "launch",
             "program": "${workspaceRoot}/node_modules/protractor/bin/protractor",
@@ -14,7 +14,7 @@
             "outFiles": [
                 "${workspaceRoot}/out/**/*.js"
             ],
-            "cwd": "${workspaceFolder}"
+            //"cwd": "${workspaceFolder}"
         }
     ]
 }
