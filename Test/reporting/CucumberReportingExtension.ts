@@ -29,29 +29,39 @@ export class CucumberReportExtension{
         }
     };
 
-    private createReportFile(dirName, fileName, fileContent){
-        //checa si el directorio existe
-        if(!fs.existsSync(dirName)) 
+    public static CreateReportFile(dirName) {
+        //Check of the directory exist
+        if (!fs.existsSync(dirName))
             mkdirp.sync(dirName);
+    }
 
-        try{ 
-            fs.writeFileSync(fileName , fileContent);
+    public static GenerateCucumberReport(){
+        report.generate(this.cucumberReporterOptions);
     }
-    catch(message){
-        console.log("Failed to create File/Directory : " + message );
-    }
+
+//     private createReportFile(dirName, fileName, fileContent){
+//         //checa si el directorio existe
+//         if(!fs.existsSync(dirName)) 
+//             mkdirp.sync(dirName);
+
+//         try{ 
+//             fs.writeFileSync(fileName , fileContent);
+//     }
+//     catch(message){
+//         console.log("Failed to create File/Directory : " + message );
+//     }
             
-}
+// }
 
-private GenerateCucumberReport(cucumberReportOption){
-    report.generate(cucumberReportOption);
-} 
-JsonFormatter = new Cucumber.JsonFormatter({
-   log: jlog =>{
-       this.createReportFile(this.jsonDir, this.jsonFile, jlog);
-       this.GenerateCucumberReport(this.cucumberReporterOptions);
-   } 
-})
-}
+// private GenerateCucumberReport(cucumberReportOption){
+//     report.generate(cucumberReportOption);
+// } 
+// JsonFormatter = new Cucumber.JsonFormatter({
+//    log: jlog =>{
+//        this.createReportFile(this.jsonDir, this.jsonFile, jlog);
+//        this.GenerateCucumberReport(this.cucumberReporterOptions);
+//    } 
+// })
+// }
 
-export let JsonFormatter = new CucumberReportExtension().JsonFormatter;
+// export let JsonFormatter = new CucumberReportExtension().JsonFormatter;

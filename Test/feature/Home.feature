@@ -28,3 +28,4 @@ Scenario:search for course from external source datasource
     And I navigate to application
     And I enter text in search from external data source  
     Then I get all the heading 
+    

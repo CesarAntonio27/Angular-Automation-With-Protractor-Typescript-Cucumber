@@ -40,6 +40,6 @@ defineSupportCode(({Given, When, Then}) =>{
     });
 
     When(/^I enter text in search from external data source$/, async ()=>{
-        await homePage.EnterDataInSearchFromJson();
+        await homePage.EnterDataInSearchFromExcel();
     } )
 });

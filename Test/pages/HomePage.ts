@@ -2,7 +2,7 @@
 import {browser, element, by, $$, $} from 'protractor';
 import { IdentificationType, BasePages } from './BasePages';
 import json from 'load-json-file';
-
+import { ExcelUtil } from '../Utilies/ExcelUtil';
 const Locators: any = {
     heading: {
         type:IdentificationType[IdentificationType.Xpath],
@@ -54,4 +54,19 @@ export class HomePage extends BasePages{
             this.searchText?.sendKeys((<any>x).SearchValue);
         })
     }
+    async EnterDataInSearchFromExcel() {
+        let sheet = <SearchData>ExcelUtil.ReadExcelSheet("./data.xlsx");
+
+        console.log(sheet.SearchValue);
+        
+        this.searchText.sendKeys(sheet.SearchValue); 
+    }
+
+
+}
+
+interface SearchData{
+    SearchValue: string,
+    CourseTitle: string,
+    Durations: string
 }

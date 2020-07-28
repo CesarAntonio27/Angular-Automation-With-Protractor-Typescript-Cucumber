@@ -1,4 +1,5 @@
 import {Config} from 'protractor'
+import { CucumberReportExtension } from '../reporting/CucumberReportingExtension'
 
 export let config: Config ={
     seleniumAddress: 'http://localhost:4444/wd/hub',
@@ -8,6 +9,14 @@ export let config: Config ={
     frameworkPath: require.resolve('protractor-cucumber-framework'),
 
     baseUrl:"http://localhost:8808/",
+    
+
+    //indica en que navegador correra el test (aqui correrá en los dos al mismo tiempo)
+    multiCapabilities: [{
+        "browserName": "firefox"
+    },{
+        "browserName":"chrome"
+    }],
 
     suites: {
         "homepage":"../feature/Home.feature",
@@ -20,5 +29,9 @@ export let config: Config ={
         format:['pretty'],
         require:['../Steps/*.js','../hooks/*.js'],
         tags:'@smoke or @regression'
+    },
+
+    onComplete: () =>{
+        CucumberReportExtension.GenerateCucumberReport();
     }
 }
