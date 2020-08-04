@@ -2,8 +2,16 @@ import {Config} from 'protractor'
 import { CucumberReportExtension } from '../reporting/CucumberReportingExtension'
 
 export let config: Config ={
-    seleniumAddress: 'http://localhost:4444/wd/hub',
+    
+    //seleniumAddress: 'http://localhost:4444/wd/hub',
+    
+    directConnect:true,
+
+    SELENIUM_PROMISE_MANAGER:false,
+
     specs:["../feature/*.feature"],
+
+    
 
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),

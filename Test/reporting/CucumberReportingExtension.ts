@@ -12,12 +12,12 @@ export class CucumberReportExtension{
 
     private jsonDir = process.cwd() + "/reports/json";
     private htmlDir = process.cwd() + "/reports/html";
-    private jsonFile = this.jsonDir + "/cucumber_report.json" + "/reports/json";
+    private jsonFile = CucumberReportExtension.jsonDir  + "/cucumbre_report.json";
 
     private cucumberReporterOptions = {
         theme: "bootstrap",
-        jsonFile: this.jsonFile,
-        output: this.htmlDir + "/cucumber_reporter.html",
+        jsonFile: CucumberReportExtension.jsonFile,
+        output: CucumberReportExtension.htmlDir + "/cucumber_reporter.html",
         reportSuiteAsScenarios: true,
         metadata:{
             "App version":"0.0.1",

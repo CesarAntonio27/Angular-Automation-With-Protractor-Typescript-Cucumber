@@ -13,7 +13,7 @@ export enum IdentificationType{
 
 export class BasePages {
 
-    ElementLocator(obj: any){
+    ElementLocator(obj){
 
         //HECHO CON SWICH CASE 
         switch(obj.type){

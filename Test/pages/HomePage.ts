@@ -3,7 +3,8 @@ import {browser, element, by, $$, $} from 'protractor';
 import { IdentificationType, BasePages } from './BasePages';
 import json from 'load-json-file';
 import { ExcelUtil } from '../Utilies/ExcelUtil';
-const Locators: any = {
+
+const Locators = {
     heading: {
         type:IdentificationType[IdentificationType.Xpath],
         value:"//course-thumb/div//h2[text()=' Selenium Framework development ']"
@@ -38,7 +39,7 @@ export class HomePage extends BasePages{
         await browser.get(url);
     }
     async GetALLHeadings(){
-        await this.headings.getText().then((text) =>{
+        await this.headings?.getText().then((text) =>{
             console.log("the heading is: " + text);
         });
     }
@@ -59,7 +60,7 @@ export class HomePage extends BasePages{
 
         console.log(sheet.SearchValue);
         
-        this.searchText.sendKeys(sheet.SearchValue); 
+        this.searchText?.sendKeys(sheet.SearchValue); 
     }
 
 
